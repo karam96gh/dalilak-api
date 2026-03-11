@@ -34,11 +34,18 @@ export class ListingController {
     }
 
     async search(req: Request, res: Response) {
-        const { q, governorateId, page, limit } = req.query as any;
-        if (!q) {
+        const { q, search, governorateId, categoryId, page, limit } = req.query as any;
+        const keyword = q ?? search;
+        if (!keyword) {
             return res.json(ApiResponse.ok([]));
         }
-        const result = await listingService.search(q, governorateId, page, limit);
+        const result = await listingService.search(
+            keyword,
+            governorateId,
+            categoryId,
+            page,
+            limit,
+        );
         res.json(ApiResponse.paginated(result.listings, result.total, result.page, result.limit));
     }
 

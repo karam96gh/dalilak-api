@@ -9,12 +9,18 @@ export class ListingService {
     async getListings(query: ListingQueryDto) {
         const { page, limit, skip } = getPagination(query);
 
-        const where: Prisma.ListingWhereInput = {
+    const where: Prisma.ListingWhereInput = {
             isActive: true,
         };
 
         if (query.categoryId) {
-            where.categoryId = parseInt(query.categoryId);
+      const rootId = parseInt(query.categoryId);
+      const categoryIds = await this.getCategoryWithDescendantsIds(rootId);
+      if (categoryIds.length > 0) {
+        where.categoryId = { in: categoryIds };
+      } else {
+        where.categoryId = rootId;
+      }
         }
 
         if (query.governorateId) {
@@ -118,7 +124,13 @@ export class ListingService {
     }
 
     // Public: search
-    async search(q: string, governorateId?: string, page?: string, limit?: string) {
+  async search(
+    q: string,
+    governorateId?: string,
+    categoryId?: string,
+    page?: string,
+    limit?: string,
+  ) {
         const pagination = getPagination({ page, limit });
 
         const where: Prisma.ListingWhereInput = {
@@ -132,6 +144,16 @@ export class ListingService {
         if (governorateId) {
             where.governorateId = parseInt(governorateId);
         }
+
+    if (categoryId) {
+      const rootId = parseInt(categoryId);
+      const categoryIds = await this.getCategoryWithDescendantsIds(rootId);
+      if (categoryIds.length > 0) {
+        where.categoryId = { in: categoryIds };
+      } else {
+        where.categoryId = rootId;
+      }
+    }
 
         const [listings, total] = await Promise.all([
             prisma.listing.findMany({
@@ -279,5 +301,19 @@ export class ListingService {
         }
 
         return breadcrumb;
+    }
+
+    private async getCategoryWithDescendantsIds(categoryId: number): Promise<number[]> {
+        const categories = await prisma.category.findMany({
+            where: {
+                OR: [
+                    { id: categoryId },
+                    { parentId: categoryId },
+                    { parent: { parentId: categoryId } },
+                ],
+            },
+            select: { id: true },
+        });
+        return categories.map((c) => c.id);
     }
 }

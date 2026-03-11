@@ -2,7 +2,7 @@ import rateLimit from 'express-rate-limit';
 
 export const generalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 دقيقة
-    max: 100,
+    max: 2000,
     message: {
         success: false,
         message: 'عدد الطلبات كثير جداً، حاول مرة أخرى لاحقاً',
@@ -13,7 +13,7 @@ export const generalLimiter = rateLimit({
 
 export const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 10,
+    max: 2000,
     message: {
         success: false,
         message: 'محاولات تسجيل دخول كثيرة، حاول مرة أخرى بعد 15 دقيقة',
