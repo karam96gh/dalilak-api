@@ -185,6 +185,7 @@ async function main() {
             description: 'تراث دمشقي وأجواء شرقية أصيلة. نقدم أشهى أطباق المطبخ الشامي مع إطلالة رائعة على القلعة التاريخية.',
             categoryId: l2['مطاعم شرقية'], governorateId: govs['حلب'],
             phone: '0212345678', whatsapp: '963212345678', address: 'حلب، المدينة القديمة',
+            locationLat: 36.1994, locationLng: 37.1573,
             isFeatured: true, isActive: true, viewCount: 980,
         },
         // ── مشاوي
@@ -193,6 +194,7 @@ async function main() {
             description: 'أشهر محل مشاوي في دمشق، شاورما وكباب طازجة على الفحم يومياً من الساعة 10 صباحاً.',
             categoryId: l3['كباب ومشاوي'] || l2['مشاوي وأفران'], governorateId: govs['دمشق'],
             phone: '0112345678', address: 'دمشق، الميدان',
+            locationLat: 33.5000, locationLng: 36.3050,
             isFeatured: false, isActive: true, viewCount: 2100,
         },
         {
@@ -200,6 +202,7 @@ async function main() {
             description: 'أفضل شاورما عربي وتركي في حلب. خبرة 20 سنة.',
             categoryId: l3['شاورما'] || l2['مشاوي وأفران'], governorateId: govs['حلب'],
             phone: '0213456789', address: 'حلب، ساحة الشهداء',
+            locationLat: 36.2028, locationLng: 37.1580,
             isFeatured: false, isActive: true, viewCount: 1560,
         },
         // ── كافيهات
@@ -209,7 +212,8 @@ async function main() {
             categoryId: l2['كافيهات'], governorateId: govs['دمشق'],
             phone: '0991234567', whatsapp: '963991234567',
             instagram: 'labella.cafe', website: 'https://labella-cafe.sy',
-            address: 'دمشق، المزة فيلات غربية', isFeatured: true, isActive: true, viewCount: 870,
+            address: 'دمشق، المزة فيلات غربية', locationLat: 33.5105, locationLng: 36.2560,
+            isFeatured: true, isActive: true, viewCount: 870,
         },
         // ── ألبسة رجالية
         {
@@ -217,6 +221,7 @@ async function main() {
             description: 'أفضل ماركات الألبسة الرجالية بأسعار منافسة. مجموعات موسمية وعروض مستمرة طوال العام.',
             categoryId: l3['ألبسة رجالية'] || l2['ألبسة وأزياء'], governorateId: govs['دمشق'],
             phone: '0911000001', whatsapp: '963911000001', address: 'دمشق، شارع الثورة',
+            locationLat: 33.5130, locationLng: 36.2920,
             isFeatured: true, isActive: true, viewCount: 630,
         },
         {
@@ -224,6 +229,7 @@ async function main() {
             description: 'أحدث صيحات الموضة النسائية. فساتين، عبايات، وتصاميم حصرية.',
             categoryId: l3['ألبسة نسائية'] || l2['ألبسة وأزياء'], governorateId: govs['دمشق'],
             phone: '0911000002', whatsapp: '963911000002', address: 'دمشق، كفرسوسة',
+            locationLat: 33.5020, locationLng: 36.2750,
             isFeatured: false, isActive: true, viewCount: 445,
         },
         // ── إلكترونيات
@@ -233,6 +239,7 @@ async function main() {
             categoryId: l3['هواتف ذكية'] || l2['إلكترونيات'], governorateId: govs['حمص'],
             phone: '0313456789', whatsapp: '963313456789', website: 'https://alnour-electronics.sy',
             facebook: 'AlnourElectronics', address: 'حمص، شارع الجيش',
+            locationLat: 34.7325, locationLng: 36.7138,
             isFeatured: true, isActive: true, viewCount: 1890,
         },
         {
@@ -240,6 +247,7 @@ async function main() {
             description: 'متجر متخصص بالحواسيب المحمولة وقطع الغيار والصيانة الاحترافية.',
             categoryId: l3['لابتوبات وحواسيب'] || l2['إلكترونيات'], governorateId: govs['حلب'],
             phone: '0214567890', address: 'حلب، الفرقان',
+            locationLat: 36.1920, locationLng: 37.1480,
             isFeatured: false, isActive: true, viewCount: 320,
         },
         // ── أطباء
@@ -248,6 +256,7 @@ async function main() {
             description: 'أخصائي أمراض القلب والأوعية الدموية. خبرة 20 سنة، حاصل على البورد الأوروبي. يستقبل المرضى يومياً.',
             categoryId: l2['طب القلب'], governorateId: govs['دمشق'],
             phone: '0112222333', whatsapp: '963112222333', address: 'دمشق، المزة، عمارة سيتي',
+            locationLat: 33.5100, locationLng: 36.2580,
             isFeatured: true, isActive: true, viewCount: 2340,
         },
         {
@@ -255,6 +264,7 @@ async function main() {
             description: 'طب وجراحة الفم والأسنان. تبييض، تقويم، زراعة فورية. بأسعار مناسبة ومواعيد مرنة.',
             categoryId: l2['طب الأسنان'], governorateId: govs['حلب'],
             phone: '0215678901', whatsapp: '963215678901', address: 'حلب، الحمدانية، برج الجوهرة',
+            locationLat: 36.1750, locationLng: 37.1200,
             isFeatured: false, isActive: true, viewCount: 870,
         },
         {
@@ -262,6 +272,7 @@ async function main() {
             description: 'فحص النظر، نظارات وعدسات، عمليات الليزك. أحدث الأجهزة وأدق النتائج.',
             categoryId: l2['طب العيون'], governorateId: govs['دمشق'],
             phone: '0113333444', address: 'دمشق، باب شرقي',
+            locationLat: 33.5120, locationLng: 36.3150,
             isFeatured: false, isActive: true, viewCount: 560,
         },
         {
@@ -269,6 +280,7 @@ async function main() {
             description: 'طبيبة أطفال وحديثي الولادة. بورد عربي وعضو جمعية طب الأطفال العالمية.',
             categoryId: l2['طب الأطفال'], governorateId: govs['دمشق'],
             phone: '0114444555', whatsapp: '963114444555', address: 'دمشق، العدوي',
+            locationLat: 33.5200, locationLng: 36.3000,
             isFeatured: false, isActive: true, viewCount: 430,
         },
         // ── تعليم
@@ -278,6 +290,7 @@ async function main() {
             categoryId: l3['لغة إنجليزية'] || l2['مراكز تدريب'], governorateId: govs['دمشق'],
             phone: '0115555666', whatsapp: '963115555666', website: 'https://mustaqbal-langs.sy',
             address: 'دمشق، أبو رمانة',
+            locationLat: 33.5230, locationLng: 36.2870,
             isFeatured: true, isActive: true, viewCount: 1120,
         },
         {
@@ -285,6 +298,7 @@ async function main() {
             description: 'دروس خصوصية في الرياضيات والفيزياء لجميع المراحل. خبرة 15 سنة، نتائج مضمونة.',
             categoryId: l3['رياضيات وعلوم'] || l2['دروس خصوصية'], governorateId: govs['حمص'],
             phone: '0316789012', address: 'حمص، الواعر',
+            locationLat: 34.7500, locationLng: 36.6800,
             isFeatured: false, isActive: true, viewCount: 240,
         },
         // ── سيارات
@@ -293,6 +307,7 @@ async function main() {
             description: 'أضخم معرض سيارات مستعملة في دمشق. تشكيلة واسعة من جميع الماركات، أسعار تنافسية، ضمان لمدة 6 أشهر.',
             categoryId: l2['معارض سيارات'], governorateId: govs['دمشق'],
             phone: '0116666777', whatsapp: '963116666777', address: 'دمشق، طريق مطار',
+            locationLat: 33.4900, locationLng: 36.2350,
             isFeatured: true, isActive: true, viewCount: 3200,
         },
         {
@@ -300,6 +315,7 @@ async function main() {
             description: 'صيانة جميع أنواع السيارات. محركات، فرامل، كهرباء، إلكترونيات. قطع غيار أصلية ومضمونة.',
             categoryId: l3['صيانة محركات'] || l2['كراجات وصيانة'], governorateId: govs['دمشق'],
             phone: '0117777888', address: 'دمشق، قدسيا',
+            locationLat: 33.5450, locationLng: 36.2400,
             isFeatured: false, isActive: true, viewCount: 780,
         },
         // ── عقارات
@@ -308,6 +324,7 @@ async function main() {
             description: 'بيع وإيجار شقق وأراضي وعقارات تجارية في جميع أنحاء دمشق وريفها. خبرة 25 سنة.',
             categoryId: l2['شقق للبيع'], governorateId: govs['دمشق'],
             phone: '0118888999', whatsapp: '963118888999', address: 'دمشق، المالكي',
+            locationLat: 33.5250, locationLng: 36.2830,
             facebook: 'AmalEstates', isFeatured: true, isActive: true, viewCount: 1650,
         },
         // ── خدمات منزلية
@@ -315,13 +332,15 @@ async function main() {
             name: 'أبو محمود للسباكة',
             description: 'خدمات السباكة الطارئة والعادية. تمديدات، إصلاح تسريبات، تركيب أجهزة صحية. متاح 24/7.',
             categoryId: l2['سباكة'], governorateId: govs['دمشق'],
-            phone: '0119999000', address: 'دمشق والريف', isFeatured: false, isActive: true, viewCount: 320,
+            phone: '0119999000', address: 'دمشق والريف', locationLat: 33.5130, locationLng: 36.2920,
+            isFeatured: false, isActive: true, viewCount: 320,
         },
         {
             name: 'شركة النظافة المثالية',
             description: 'تنظيف شامل للمنازل والمكاتب والشركات. عمالة مدربة، مواد صديقة للبيئة، أسعار حسب المساحة.',
             categoryId: l2['تنظيف'], governorateId: govs['دمشق'],
             phone: '0990001111', whatsapp: '963990001111', address: 'دمشق - نخدم جميع المناطق',
+            locationLat: 33.5138, locationLng: 36.2765,
             isFeatured: false, isActive: true, viewCount: 540,
         },
         // ── جمال وعناية
@@ -331,6 +350,7 @@ async function main() {
             categoryId: l2['صالونات نساء'], governorateId: govs['دمشق'],
             phone: '0991111222', whatsapp: '963991111222', instagram: 'loura.salon',
             address: 'دمشق، كفرسوسة، مول سيتي',
+            locationLat: 33.5010, locationLng: 36.2740,
             isFeatured: true, isActive: true, viewCount: 1100,
         },
         {
@@ -339,6 +359,7 @@ async function main() {
             categoryId: l2['حلاقة رجالية'], governorateId: govs['حلب'],
             phone: '0991111333', instagram: 'prestige.barber',
             address: 'حلب، الشعار',
+            locationLat: 36.1850, locationLng: 37.1350,
             isFeatured: false, isActive: true, viewCount: 390,
         },
         // ── رياضة
@@ -348,6 +369,7 @@ async function main() {
             categoryId: l2['صالات رياضية'], governorateId: govs['دمشق'],
             phone: '0992222333', whatsapp: '963992222333', website: 'https://fitlife-gym.sy',
             instagram: 'fitlife.damascus', address: 'دمشق، الرابية',
+            locationLat: 33.5180, locationLng: 36.2650,
             isFeatured: true, isActive: true, viewCount: 2760,
         },
         // ── سفر
@@ -357,6 +379,7 @@ async function main() {
             categoryId: l2['وكالات سفر'], governorateId: govs['دمشق'],
             phone: '0113344556', whatsapp: '963113344556', website: 'https://star-travel.sy',
             facebook: 'StarTravelSyria', address: 'دمشق، أبو رمانة',
+            locationLat: 33.5235, locationLng: 36.2880,
             isFeatured: true, isActive: true, viewCount: 1430,
         },
         // ── محافظات مختلفة
@@ -365,13 +388,15 @@ async function main() {
             description: 'فندق 4 نجوم على شاطئ اللاذقية مباشرة. غرف مطلة على البحر، مسبح، مطعم، خدمة 24 ساعة.',
             categoryId: l2['فنادق'], governorateId: govs['اللاذقية'],
             phone: '0413456789', whatsapp: '963413456789', website: 'https://golden-beach-hotel.sy',
-            address: 'اللاذقية، شارع الكورنيش', isFeatured: true, isActive: true, viewCount: 4200,
+            address: 'اللاذقية، شارع الكورنيش', locationLat: 35.5317, locationLng: 35.7862,
+            isFeatured: true, isActive: true, viewCount: 4200,
         },
         {
             name: 'مطعم البحر الأزرق',
             description: 'مأكولات بحرية طازجة مباشرة من الصيادين. سمك، جمبري، كالاماري. إطلالة بانورامية على المتوسط.',
             categoryId: l2['مطاعم شرقية'], governorateId: govs['طرطوس'],
             phone: '0434567890', address: 'طرطوس، الشاطئ الأزرق',
+            locationLat: 34.8959, locationLng: 35.8867,
             isFeatured: false, isActive: true, viewCount: 890,
         },
         {
@@ -379,6 +404,7 @@ async function main() {
             description: 'طبيب عام. كشف وعلاج، صيدلانية متكاملة ملحقة بالعيادة.',
             categoryId: l2['جراحة عامة'], governorateId: govs['حماة'],
             phone: '0335678901', address: 'حماة، حي العليليات',
+            locationLat: 35.1318, locationLng: 36.7510,
             isFeatured: false, isActive: true, viewCount: 210,
         },
         {
@@ -386,6 +412,7 @@ async function main() {
             description: 'أطباق من بادية الشام، حساء العدس، الرشتة الفراتية، ومنسف بالطريقة الأصيلة.',
             categoryId: l2['مطاعم شرقية'], governorateId: govs['دير الزور'],
             phone: '0516789012', address: 'دير الزور، وسط المدينة',
+            locationLat: 35.3359, locationLng: 40.1408,
             isFeatured: false, isActive: true, viewCount: 340,
         },
         {
@@ -393,6 +420,7 @@ async function main() {
             description: 'مجوهرات ذهبية وفضية أصيلة، تصاميم تراثية جنوبية وعصرية. نشتري ونبيع الذهب.',
             categoryId: l2['مجوهرات وساعات'], governorateId: govs['السويداء'],
             phone: '0163456789', address: 'السويداء، شارع المدينة',
+            locationLat: 32.7125, locationLng: 36.5662,
             isFeatured: false, isActive: true, viewCount: 450,
         },
     ];
