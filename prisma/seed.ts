@@ -7,13 +7,14 @@ async function main() {
     console.log('🌱 بدء تهيئة قاعدة البيانات...\n');
 
     // ─── 1. Admin User ───────────────────────────────────────────────────────
-    const hashedPassword = await bcrypt.hash('admin123', 10);
+    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+    const hashedPassword = await bcrypt.hash(adminPassword, 12);
     await prisma.adminUser.upsert({
         where: { username: 'admin' },
-        update: {},
+        update: { password: hashedPassword },
         create: { username: 'admin', password: hashedPassword, name: 'مدير النظام' },
     });
-    console.log('✅ مدير النظام: admin / admin123');
+    console.log('✅ مدير النظام: admin / ***');
 
     // ─── 2. Governorates ─────────────────────────────────────────────────────
     const governorateNames = [
