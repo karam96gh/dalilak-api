@@ -20,8 +20,6 @@ export class UploadController {
 
     // Multiple images upload
     async uploadImages(req: Request, res: Response) {
-        console.log('Upload request files:', req.files); // Debug log
-        
         if (!req.files || (Array.isArray(req.files) && req.files.length === 0)) {
             throw ApiError.badRequest('لم يتم رفع أي صور');
         }
@@ -35,8 +33,6 @@ export class UploadController {
         const images = files.map((file: any) => ({
             imageUrl: `/uploads/${file.filename}`,
         }));
-
-        console.log('Uploaded images:', images); // Debug log
 
         res.status(201).json(
             ApiResponse.ok(images, 'تم رفع الصور بنجاح')
@@ -52,7 +48,19 @@ export class UploadController {
         }
 
         const filename = path.basename(imageUrl);
-        const filePath = path.join(getEnv().UPLOAD_DIR, filename);
+
+        // Prevent path traversal
+        if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+            throw ApiError.badRequest('اسم ملف غير صالح');
+        }
+
+        const uploadsDir = path.resolve(getEnv().UPLOAD_DIR);
+        const filePath = path.resolve(uploadsDir, filename);
+
+        // Ensure the resolved path is within the uploads directory
+        if (!filePath.startsWith(uploadsDir)) {
+            throw ApiError.badRequest('اسم ملف غير صالح');
+        }
 
         if (fs.existsSync(filePath)) {
             fs.unlinkSync(filePath);

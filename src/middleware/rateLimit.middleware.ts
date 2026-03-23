@@ -13,7 +13,7 @@ export const generalLimiter = rateLimit({
 
 export const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 2000,
+    max: 15,
     message: {
         success: false,
         message: 'محاولات تسجيل دخول كثيرة، حاول مرة أخرى بعد 15 دقيقة',

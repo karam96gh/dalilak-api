@@ -4,7 +4,6 @@ import { ApiResponse } from '../utils/ApiResponse';
 
 export function validate(schema: ZodSchema) {
     return (req: Request, res: Response, next: NextFunction) => {
-        console.log('Validating request body:', JSON.stringify(req.body, null, 2)); // Debug log
         const result = schema.safeParse(req.body);
 
         if (!result.success) {
@@ -13,8 +12,6 @@ export function validate(schema: ZodSchema) {
                 message: e.message,
                 code: e.code,
             }));
-
-            console.error('Validation errors:', errors); // Debug log
 
             return res.status(400).json({
                 success: false,
